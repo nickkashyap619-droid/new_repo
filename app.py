@@ -52,7 +52,6 @@ HTML_TEMPLATE = """
 @app.route("/")
 def index():
     conn = sqlite3.connect("database.db")
-    cursor = conn.fetchall()
     cursor = conn.execute("SELECT * FROM quotes ORDER BY id DESC")
     quotes = cursor.fetchall()
     conn.close()
